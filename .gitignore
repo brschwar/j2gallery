@@ -2,7 +2,7 @@
 .sass-cache
 
 # Laravel
-
+# none so far...
 
 # Folder view configuration files
 .DS_Store
@@ -14,3 +14,7 @@ Thumbs.db
 
 # Files that might appear on external disks
 .Trashes
+
+# database files
+db_config
+database
