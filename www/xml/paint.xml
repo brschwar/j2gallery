@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<paintings>
+<painting id="1" title="Line Dancing" inum="MJA1031" date="2012" artist="M Jackson"/>
+<painting id="2" title="Blindness" inum="JKA1004" date="2012" artist="Joseph Knox"/>
+<painting id="3" title="Vintage Vino" inum="LLJ1328" date="2012" artist="Laura Junge"/>
+<painting id="4" title="Line Dancing" inum="MJA1031" date="2012" artist="M Jackson"/>
+<painting id="5" title="Agatha" inum="ACA1006" date="2011" artist="Audry Cramblit"/>
+<painting id="6" title="Chicago Bridges" inum="DMA1002" date="2008" artist="David Mayhew"/>
+</paintings>

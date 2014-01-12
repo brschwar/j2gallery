@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-	
+
 	//
 	// Alternating row colors on the Table
 	//
@@ -9,24 +9,24 @@ $(document).ready(function () {
 		$('tbody tr:even', $table).removeClass('odd').addClass('even');
 	};
 
-	
-	
+
+
 	//
 	//  Drag/Drop
 	//
 	initTable = function () {
-		
+
 		$(".sortable").each( function() {
 			var arrayOfClasses = $(this).attr('class').split(' ');
 			$(this).tableDnD({
 				onDragClass: "myDragClass",
 				onDrop: function(table, row) {
-				
+
 					// Re-color alternate rows.
 					$(".sortable").each( function(i) { // Re-color alternate rows.
-							alternateRowColors(i);									 
+							alternateRowColors(i);
 						});
-					
+
 					// Save the new order to the Database
 					var serialAr = $.tableDnD.serialize();
 					onDropHandler(serialAr, arrayOfClasses[0]);
@@ -39,18 +39,18 @@ $(document).ready(function () {
 			});
 		});
 
-		
+
 		$(".sortable .dragHandle").hover(function() {
 			  $(this).addClass('showDragHandle');
 		}, function() {
 			  $(this).removeClass('showDragHandle');
 		});
-		
-		
+
+
 		$(".sortable").each( function(i) { // Re-color alternate rows.
-				alternateRowColors(i);									 
+				alternateRowColors(i);
 			});
-		
+
 	};
 	initTable();
 
@@ -60,10 +60,10 @@ $(document).ready(function () {
 	onDropHandler = function (serialAr, elem) {
 		var theData = serialAr + "&theme="+elem;
 		// console.log(theData);
-	
+
 		$.ajax({
 		   type: "POST",
-		   url: "update_printList.php",
+		   url: "inc/functions/update_printList.php",
 		   data: theData,
 		   error: function(msg) {
 				// console.log(msg);
@@ -76,8 +76,8 @@ $(document).ready(function () {
 			 initTable();
 		   }
 		 });
-	
+
 	};
-	
+
 });
 

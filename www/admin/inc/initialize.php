@@ -1,14 +1,23 @@
 <?php
+//
+defined('SITE_NAME') ? null : define("SITE_NAME", "Jackson-Junge Gallery");
 
-// load config file first
-require_once('../../db_config/admin_mysql_connect.php');
+// Checks for dev environment.
+$dev = strripos($_SERVER['HTTP_HOST'], '.dev');
+
+
+// load db connect file
+require_once('../../db_config/mysqli_connect.php');
 
 // load configuration file for error management.
-require_once ('error_config.php');
+require_once ('functions/error_config.php');
 
 // load core objects
-require_once('inc/classes/database.php');
+require_once('classes/MysqliDatabase.class.php');
 
-// load database-related classes
+
+// Initialize Database Connection
+$database = new MysqliDatabase();
+$db =& $database;
 
 ?>

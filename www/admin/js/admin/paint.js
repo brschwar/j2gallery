@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-	
+
 	//
 	// Alternating row colors on the Table
 	//
@@ -9,8 +9,8 @@ $(document).ready(function () {
 		$('tbody tr:even', $table).removeClass('odd').addClass('even');
 	};
 
-	
-	
+
+
 	//
 	//  Drag/Drop
 	//
@@ -19,7 +19,7 @@ $(document).ready(function () {
 			onDragClass: "myDragClass",
 			onDrop: function(table, row) {
 				alternateRowColors( "#adminTable" ); // Re-color alternate rows.
-	
+
 				// Save the new order to the Database
 				var serialAr = $.tableDnD.serialize();
 				onDropHandler(serialAr);
@@ -31,15 +31,15 @@ $(document).ready(function () {
 			scrollAmount: 50
 		});
 
-		
+
 		$("#adminTable .dragHandle").hover(function() {
 			  $(this).addClass('showDragHandle');
 		}, function() {
 			  $(this).removeClass('showDragHandle');
 		});
-		
+
 		alternateRowColors( "#adminTable" );
-		
+
 	};
 	initTable();
 
@@ -48,10 +48,10 @@ $(document).ready(function () {
 	//
 	onDropHandler = function (serialAr) {
 		// console.log(serialAr);
-		
+
 		$.ajax({
 		   type: "POST",
-		   url: "update_paintList.php",
+		   url: "inc/functions/update_paintList.php",
 		   data: serialAr,
 		   error: function(msg) {
 				// Print out error.
@@ -64,7 +64,7 @@ $(document).ready(function () {
 		   }
 		 });
 	};
-	
+
 });
 
 
@@ -76,9 +76,9 @@ $(document).ready(function () {
 	//
 	// Sorting for the Table Headers - DISABLED due to sort order confusion.
 	//
-	/*	
+	/*
 	$('table.sortable').each(function() {
-	
+
 		$('th', $table).each(function(column) {
 			var findSortKey;
 			if ($(this).is('.sort-alpha')) {
@@ -111,10 +111,10 @@ $(document).ready(function () {
 							$.each(rows, function(index, row) {
 								row.sortKey = findSortKey($(row).children('td').eq(column));
 							});
-							rows.sort(function(a, b) {			
-								if (a.sortKey < b.sortKey) return -newDirection;	
-								if (a.sortKey > b.sortKey) return newDirection;		
-								return 0;		
+							rows.sort(function(a, b) {
+								if (a.sortKey < b.sortKey) return -newDirection;
+								if (a.sortKey > b.sortKey) return newDirection;
+								return 0;
 							});
 							$.each(rows, function(index, row) {
 								$table.children('tbody').append(row);
@@ -132,6 +132,6 @@ $(document).ready(function () {
 						});
 					}
 		});
-		
+
 	});
 	*/
